@@ -4,9 +4,9 @@
     <!-- Basic Page Needs
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta charset="utf-8">
-    <title>Temperatura e Umidade DHT22 - Bolsa PRADI</title>
+    <title>Lab Conditions by RPi</title>
     <meta name="description" content="Lab conditions - RPi">
-    <meta name="author" content="Lucas Bogo">
+    <meta name="author" content="Peter Dalmaris">
     <!-- Mobile Specific Metas
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,11 +19,11 @@
     <link rel="stylesheet" href="/static/css/skeleton.css">
     <!-- Favicon
     –––––––––––––––––––––––––––––––––––––––––––––––––– -->
-    <link rel="icon" type="image/png" href="/static/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="/static/images/favicon.png">
   </head>
   <body>
     <div class="container">
-     <div class="row">
+      <div class="row">
       <div class="eleven columns">
         <form id="range_select" action = "/lab_env_db" method="GET">        
           <div class="one column">
@@ -43,13 +43,13 @@
     </div>
       <div class="row">
         <div class="one-third column" style="margin-top: 5%">
-          <strong>Showing all records</strong>                
-          <h2>Temperatures</h2>                    
+          <strong>Showing all records</strong>
+          <h2>Temperatures</h2>
             <table class="u-full-width">
               <thead>
                 <tr>
                   <th>Date</th>
-                  <th>&deg;C</th>                        
+                  <th>&deg;C</th>
                 </tr>
               </thead>
               <tbody>
@@ -60,13 +60,13 @@
                 </tr>
                 {% endfor %}
               </tbody>
-            </table>  
+            </table>
             <h2>Humidities</h2>
             <table class="u-full-width">
               <thead>
                 <tr>
                   <th>Date</th>
-                  <th>%</th>                        
+                  <th>%</th>
                 </tr>
               </thead>
               <tbody>
@@ -74,10 +74,10 @@
                 <tr>
                   <td>{{row[0]}}</td>
                   <td>{{'%0.2f'|format(row[2])}}</td>
-                </tr>          
+                </tr>
                 {% endfor %}
               </tbody>
-            </table>                                              
+            </table>
         </div>
       <!-- Google Charts Code start -->
       <div class="two-thirds column" style="margin-top: 5%">
@@ -91,15 +91,16 @@
         </div>     
       </div>
       <!-- Google Charts Code end -->
-    </div>           
+    </div>
   </body>
-<script src="//code.jquery.com/jquery-3.5.0.slim.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.5.0.slim.min.js"></script>
   <script>
     jQuery("#range_select input[type=radio]").click(function(){
       jQuery("#range_select").submit();
     });
 
   </script>
+
   <!-- Google Charts JS start -->
   <script type="text/javascript" src="https://www.google.com/jsapi?autoload={'modules':[{'name':'visualization','version':'1','packages':['corechart']}]}"></script>
 
